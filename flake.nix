@@ -19,7 +19,7 @@
   in
   rec {
     images = {
-      oneplus-enchilada-cross-x86_64-linux = nixosConfigurations.oneplus-enchilada-cross-x86_64-linux.config.mobile.outputs.android.android-fastboot-images;
+#      oneplus-enchilada-cross-x86_64-linux = nixosConfigurations.oneplus-enchilada-cross-x86_64-linux.config.mobile.outputs.android.android-fastboot-images;
       oneplus-enchilada = nixosConfigurations.oneplus-enchilada.config.mobile.outputs.android.android-fastboot-images;
       binfmt-virtualbox-image =
         nixosConfigurations.binfmt-virtualbox-image.config.system.build.isoImage;
@@ -35,16 +35,16 @@
         }
       ];
     };
-    nixosConfigurations.oneplus-enchilada-cross-x86_64-linux = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
-      modules = commonModules ++ [
-        {
-          nixpkgs.crossSystem = {
-            system = "aarch64-linux";
-          };
-        }
-      ];
-    };
+#    nixosConfigurations.oneplus-enchilada-cross-x86_64-linux = nixpkgs.lib.nixosSystem {
+#      system = "x86_64-linux";
+#      modules = commonModules ++ [
+#        {
+#          nixpkgs.crossSystem = {
+#            system = "aarch64-linux";
+#          };
+#        }
+#      ];
+#    };
     nixosConfigurations.oneplus-enchilada = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       modules = commonModules;
