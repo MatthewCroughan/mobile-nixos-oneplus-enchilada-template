@@ -1,5 +1,6 @@
 { pkgs, inputs, ...}:
 {
+  services.pipewire.enable = true;
   environment.systemPackages = with pkgs; [
     vim
     git
