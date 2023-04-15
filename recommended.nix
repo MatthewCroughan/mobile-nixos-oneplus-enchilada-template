@@ -1,6 +1,7 @@
-{ pkgs, inputs, ...}:
+{ pkgs, lib, inputs, ...}:
 {
-  services.pipewire.enable = true;
+  hardware.pulseaudio.enable = true;
+  services.pipewire.enable = lib.mkForce false;
   environment.systemPackages = with pkgs; [
     vim
     git
