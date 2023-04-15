@@ -2,6 +2,7 @@
 {
   hardware.pulseaudio.enable = true;
   services.pipewire.enable = lib.mkForce false;
+
   environment.systemPackages = with pkgs; [
     vim
     git

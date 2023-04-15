@@ -6,7 +6,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/a36fdb5";
     mobile-nixos = {
-      url = "github:matthewcroughan/mobile-nixos/71480a82bb5586c66573ad580518e320ee394d39";
+      url = "github:matthewcroughan/mobile-nixos/cb9041dbd26fae523a1451d11219874de55cbe98";
       flake = false;
     };
   };
