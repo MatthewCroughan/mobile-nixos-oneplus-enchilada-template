@@ -2,6 +2,8 @@
   imports = [
     ./gnome-mobile
     ./minimal.nix
+    ./quirks.nix
+    ./recommended.nix
   ];
   nixpkgs.config.allowUnfree = true;
   services.openssh.enable = true;

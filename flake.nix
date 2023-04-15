@@ -10,7 +10,7 @@
       flake = false;
     };
   };
-  outputs = { self, nixpkgs, mobile-nixos }:
+  outputs = { self, nixpkgs, mobile-nixos }@inputs:
   let
     commonModules = [
       (import "${mobile-nixos}/lib/configuration.nix" { device = "oneplus-enchilada"; })
@@ -44,10 +44,12 @@
 #          };
 #        }
 #      ];
+#      specialArgs = { inherit inputs; };
 #    };
     nixosConfigurations.oneplus-enchilada = nixpkgs.lib.nixosSystem {
       system = "aarch64-linux";
       modules = commonModules;
+      specialArgs = { inherit inputs; };
     };
   };
 }
