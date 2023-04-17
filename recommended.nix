@@ -3,6 +3,8 @@
   hardware.pulseaudio.enable = true;
   services.pipewire.enable = lib.mkForce false;
 
+  zramSwap.enable = true;
+
   environment.systemPackages = with pkgs; [
     vim
     git
