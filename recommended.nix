@@ -5,6 +5,8 @@
 
   zramSwap.enable = true;
 
+  boot.binfmt.emulatedSystems = [ "x86_64-linux" "i686-linux" "i386-linux" "i486-linux" "i586-linux" ];
+
   environment.systemPackages = with pkgs; [
     vim
     git
