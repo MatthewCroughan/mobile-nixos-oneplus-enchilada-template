@@ -27,7 +27,9 @@
     apps.x86_64-linux.binfmt-sdk-nixos-shell = {
       type = "app";
       program = builtins.toPath (nixpkgs.legacyPackages.x86_64-linux.writeShellScript "run-binfmt-sdk-nixos-shell" ''
-        rm nixos.qcow2
+        rm nixos.qcow2 || true
+        export NIX_CONFIG="experimental-features = nix-command flakes"
+        export PATH=$PATH:${nixpkgs.legacyPackages.x86_64-linux.nixUnstable}/bin
         ${nixos-shell.packages.x86_64-linux.nixos-shell}/bin/nixos-shell --flake ${self}#binfmt-sdk-nixos-shell
       '');
     };
