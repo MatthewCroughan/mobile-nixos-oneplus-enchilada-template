@@ -45,9 +45,11 @@
           };
           nixos-shell.mounts.mountHome = false;
           boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
+          boot.kernelPackages = pkgs.linuxPackages_latest;
           environment.systemPackages = with pkgs; [
             vim
             git
+            btop
           ];
           nix = {
             settings = {
