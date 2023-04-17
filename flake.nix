@@ -36,7 +36,14 @@
     nixosConfigurations.binfmt-sdk-nixos-shell = nixpkgs.lib.makeOverridable nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
-        {
+        nixos-shell.nixosModules.nixos-shell
+        ({ pkgs, ... }: {
+          virtualisation = {
+            memorySize = 8192;
+            cores = 4;
+            diskSize = 80 * 1024;
+          };
+          nixos-shell.mounts.mountHome = false;
           boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
           environment.systemPackages = with pkgs; [
             vim
@@ -58,7 +65,7 @@
             registry.nixpkgs.flake = inputs.nixpkgs;
             nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
           };
-        }
+        })
       ];
     };
 #    nixosConfigurations.oneplus-enchilada-cross-x86_64-linux = nixpkgs.lib.nixosSystem {
