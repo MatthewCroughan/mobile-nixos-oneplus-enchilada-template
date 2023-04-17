@@ -42,6 +42,7 @@
             memorySize = 8192;
             cores = 4;
             diskSize = 80 * 1024;
+            writableStoreUseTmpfs = false;
           };
           nixos-shell.mounts.mountHome = false;
           boot.binfmt.emulatedSystems = [ "aarch64-linux" ];
