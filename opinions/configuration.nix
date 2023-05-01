@@ -9,7 +9,7 @@
   services.openssh.enable = true;
   users.users = {
     root.password = "default";
-    matthew = {
+    defaultUser = {
       isNormalUser = true;
       password = "default";
       extraGroups = [

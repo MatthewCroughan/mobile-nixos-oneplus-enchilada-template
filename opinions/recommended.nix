@@ -1,17 +1,21 @@
 { pkgs, lib, inputs, ...}:
 {
-  hardware.pulseaudio.enable = true;
-  services.pipewire.enable = lib.mkForce false;
+  hardware.pulseaudio.enable = lib.mkDefault true;
+  services.pipewire.enable = lib.mkDefault false;
 
-  zramSwap.enable = true;
+  # When ram gets low, enabling zram helps
+  zramSwap.enable = lib.mkDefault true;
 
-  boot.binfmt.emulatedSystems = [ "x86_64-linux" "i686-linux" "i386-linux" "i486-linux" "i586-linux" ];
+  # Enable transparent x86 emulation of all kinds
+  boot.binfmt.emulatedSystems = lib.mkDefault [ "x86_64-linux" "i686-linux" "i386-linux" "i486-linux" "i586-linux" ];
 
   environment.systemPackages = with pkgs; [
     vim
     git
-    (builtins.getFlake "github:vlinkz/nix-software-center/8c66618ebb85263e58c4b1b5e46bc954d55a418b").packages.${pkgs.hostPlatform.system}.default
+    firefox
+    inputs.nix-software-center.packages.${pkgs.hostPlatform.system}.default
   ];
+
   nix = {
     settings = {
       trusted-users = [ "@wheel" "root" "nix-ssh" ];
