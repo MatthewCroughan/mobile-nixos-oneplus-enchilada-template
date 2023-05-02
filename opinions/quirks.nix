@@ -5,7 +5,7 @@
   systemd.targets.suspend.enable = false;
   systemd.targets.hibernate.enable = false;
   systemd.targets.hybrid-sleep.enable = false;
-  services.xserver.desktopManager.gnome3.extraGSettingsOverrides = ''
+  services.xserver.desktopManager.gnome.extraGSettingsOverrides = ''
     [org.gnome.settings-daemon.plugins.power]
     power-button-action='nothing'
   '';
