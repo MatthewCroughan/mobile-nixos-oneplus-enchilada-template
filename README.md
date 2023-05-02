@@ -24,7 +24,7 @@ configuration.
 Run the Binfmt SDK from the root of this repo in order to enter a virtual machine which
 is itself capable of emulating arm64. You will then be able to build any of the arm64 outputs from this flake.
 
-`nix run .#
+`nix run .#binfmt-sdk-nixos-shell`
 
 ### What is binfmt and why is it needed?
 
